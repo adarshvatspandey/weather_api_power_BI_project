@@ -19,7 +19,7 @@ This project demonstrates the use of API integration, data transformation, data 
 
 ---
  📊 Dashboard Preview
- ![image]()
+ ![image](https://github.com/adarshvatspandey/weather_api_power_BI_project/blob/41cb0925a7eb130bb16a6ff136932260fdba1752/weather%20API%20Dashboard.png)
 
 ## 📊 Dashboard Features
 

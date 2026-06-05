@@ -18,6 +18,8 @@ This project demonstrates the use of API integration, data transformation, data 
 * Enable city-wise weather comparison.
 
 ---
+ 📊 Dashboard Preview
+ ![image]()
 
 ## 📊 Dashboard Features
 

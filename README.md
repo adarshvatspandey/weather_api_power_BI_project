@@ -1,4 +1,4 @@
-# weather_api_power_BI_project_dashboard
+# weather_API_Power_BI_Project_Dashboard
 
 ## 📖 Overview
 

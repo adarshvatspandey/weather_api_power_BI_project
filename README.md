@@ -102,49 +102,43 @@ The dashboard utilizes Weather API data containing:
 
 ---
 
-## 💡 Skills Demonstrated
+# 📊 KPI Metrics & DAX Measures
 
-* API Integration
-* Data Cleaning & Transformation
-* Power Query Development
-* DAX Calculations
-* Data Modeling
-* Dashboard Design
-* Business Intelligence
-* Data Visualization
-* Analytical Reporting
-  📊 WEATHER API PROJECT – KPIs
+## 🎯 Key Performance Indicators (KPIs)
 
-1. Current Temperature
-2. Air Quality Suggestion
-3. Carbon Monoxide (CO) Status
-4. Nitrogen Dioxide (NO₂) Status
-5. Last Updated Timestamp
-6. PM10 Pollution Gauge
-7. Average Temperature
-8. Maximum Temperature
-9. Minimum Temperature
-10. Average Humidity
-11. Maximum Wind Speed
-12. Average Visibility
-13. Total Locations Monitored
+The dashboard tracks the following KPIs to monitor weather conditions and air quality in real time:
 
-====================================================
+* 🌡️ Current Temperature
+* 💨 Air Quality Suggestion
+* 🏭 Carbon Monoxide (CO) Status
+* 🌫️ Nitrogen Dioxide (NO₂) Status
+* 🕒 Last Updated Timestamp
+* 📈 PM10 Pollution Gauge
+* 🌡️ Average Temperature
+* 🔥 Maximum Temperature
+* ❄️ Minimum Temperature
+* 💧 Average Humidity
+* 🌪️ Maximum Wind Speed
+* 👀 Average Visibility
+* 📍 Total Locations Monitored
 
-🧮 DAX MEASURES
+---
 
-1️⃣ City Temperature
+# 🧮 DAX Measures
 
+## Current Temperature
+
+```DAX
 City Temp =
 FORMAT(
     SELECTEDVALUE('Current Data'[current.temp_c]),
     "0.0"
 ) & " °C"
+```
 
-----------------------------------------------------
+## Air Quality Recommendation
 
-2️⃣ AQI Suggestion
-
+```DAX
 AQI Suggestion =
 VAR AQI = MAX('Current Data'[current.air_quality.pm10])
 
@@ -158,11 +152,11 @@ SWITCH(
     AQI <= 300, "Avoid outdoor activity if possible",
     "Stay indoors, wear mask if outside"
 )
+```
 
-----------------------------------------------------
+## Carbon Monoxide Indicator
 
-3️⃣ CO Color Indicator
-
+```DAX
 CO Color =
 VAR AQI =
 ROUND(
@@ -180,11 +174,11 @@ SWITCH(
     AQI <= 300, "#ff5b0f",
     "#d95243"
 )
+```
 
-----------------------------------------------------
+## Nitrogen Dioxide Indicator
 
-4️⃣ NO₂ Color Indicator
-
+```DAX
 NO2Color =
 VAR AQI =
 ROUND(
@@ -202,88 +196,86 @@ SWITCH(
     AQI <= 300, "#ff5b0f",
     "#d95243"
 )
+```
 
-----------------------------------------------------
+## Last Updated Timestamp
 
-5️⃣ Last Updated KPI
-
+```DAX
 Last_Updates_Current =
 "Last Updated: " &
 FORMAT(
     MAX('Current Data'[current.last_updated]),
     "dd mmm"
 )
+```
 
-----------------------------------------------------
+## PM10 Gauge Calculation
 
-6️⃣ PM10 Gauge Value
-
+```DAX
 MaxValue = 70
+```
 
+```DAX
 left_value_PM10 =
 [MaxValue] -
 SUM('Current Data'[current.air_quality.pm10])
+```
 
-----------------------------------------------------
+## Average Temperature
 
-7️⃣ Average Temperature
-
+```DAX
 Avg Temperature =
 AVERAGE('Current Data'[current.temp_c])
+```
 
-----------------------------------------------------
+## Maximum Temperature
 
-8️⃣ Maximum Temperature
-
+```DAX
 Max Temperature =
 MAX('Current Data'[current.temp_c])
+```
 
-----------------------------------------------------
+## Minimum Temperature
 
-9️⃣ Minimum Temperature
-
+```DAX
 Min Temperature =
 MIN('Current Data'[current.temp_c])
+```
 
-----------------------------------------------------
+## Average Humidity
 
-🔟 Average Humidity
-
+```DAX
 Avg Humidity =
 AVERAGE('Current Data'[current.humidity])
+```
 
-----------------------------------------------------
+## Maximum Wind Speed
 
-1️⃣1️⃣ Maximum Wind Speed
-
+```DAX
 Max Wind Speed =
 MAX('Current Data'[current.wind_kph])
+```
 
-----------------------------------------------------
+## Average Visibility
 
-1️⃣2️⃣ Average Visibility
-
+```DAX
 Avg Visibility =
 AVERAGE('Current Data'[current.vis_km])
+```
 
-----------------------------------------------------
+## Total Locations Monitored
 
-1️⃣3️⃣ Total Locations
-
+```DAX
 Total Locations =
 DISTINCTCOUNT('Current Data'[location.name])
+```
 
-====================================================
+---
 
-🎯 PROJECT OUTCOMES
+# 🚀 Project Outcomes
 
-• Built a real-time Weather Analytics Dashboard using Weather API and Power BI.
-
-• Created 13 KPI metrics and DAX measures for monitoring temperature, humidity, wind speed, visibility, and air quality.
-
-• Implemented dynamic AQI-based health recommendations and pollution indicators using conditional formatting.
-
-• Enabled real-time weather tracking and environmental monitoring through interactive dashboards and KPI cards.
-
-• Delivered actionable insights on weather conditions and air quality to support informed decision-making.
-
+* Built a real-time Weather Analytics Dashboard using Power BI and Weather API data.
+* Developed KPI-driven insights for temperature, humidity, visibility, wind speed, and air quality monitoring.
+* Implemented dynamic AQI recommendations and conditional formatting using DAX.
+* Enabled real-time environmental monitoring through interactive dashboards and visual indicators.
+* Improved data accessibility by transforming raw API responses into actionable business insights.
